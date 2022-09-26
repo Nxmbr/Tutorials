@@ -9,8 +9,10 @@ unfamiliar_skill = input('>')
 print(f"Filtering out {unfamiliar_skill}")
 
 def find_jobs():
-    path_to_posts = 'C:/Users/trist/dev/.venv/webscraping/webscraping2/posts/'
-    html_text = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&txtKeywords=python&txtLocation=').text
+    path_to_posts = "C:/Users/trist/dev/Tutorials/webscraping2/posts/"
+
+    html_text = requests.get('https://www.timesjobs.com/candidate/job-search.html?searchType=personalizedSearch&from=submit&txtKeywords=python&txtLocation=')#.text
+    print(html_text)
     soup = BeautifulSoup(html_text, 'lxml')
     jobs = soup.find_all('li', class_='clearfix job-bx wht-shd-bx')
     for file in os.listdir(path_to_posts):
